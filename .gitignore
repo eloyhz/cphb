@@ -1,0 +1,11 @@
+*.dvi
+*.aux
+*.out
+*.log
+*.ind
+*.ilg
+*.idx
+*.fls
+*.toc
+*.synctex.*
+*.fdb*
