@@ -1,22 +1,22 @@
-# Competitive Programmer's Handbook
+# Manual del Programador Competitivo
 
-Competitive Programmer's Handbook is a modern introduction to competitive programming.
-The book discusses programming tricks and algorithm design techniques relevant in competitive programming.
+El Manual del programador competitivo es una introducción moderna a la programación competitiva.
+El libro analiza los trucos de programación y las técnicas de diseño de algoritmos relevantes en la programación competitiva.
 
-## CSES Problem Set
+## Conjunto de Problemas CSES
 
 The CSES Problem Set contains a collection of competitive programming problems.
-You can practice the techniques presented in the book by solving the problems.
-
+El Conjunto de Problemas CSES contiene una colección de problemas de programación competitiva.
+Puedes practicar las técnicas presentadas en el libro resolviendo los problemas.
 https://cses.fi/problemset/
 
-## License
+## Licencia
 
-The license of the book is Creative Commons BY-NC-SA.
+La licencia del libro es Creative Commons BY-NC-SA.
 
-## Other books
+## Otros libros
 
-Guide to Competitive Programming is a printed book, published by Springer, based on Competitive Programmer's Handbook.
-There is also a Russian edition Олимпиадное программирование (Olympiad Programming) and a Korean edition 알고리즘 트레이닝: 프로그래밍 대회 입문 가이드.
+Guide to Competitive Programming es un libro impreso, publicado por Springer, basado en el Manual del Programador Competitivo.
+También hay una edición Rusa Олимпиадное программирование (Programación Olímpica) y una edición Coreana 알고리즘 트레이닝: 프로그래밍 대회 입문 가이드.
 
 https://cses.fi/book/
