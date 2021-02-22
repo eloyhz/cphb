@@ -1,7 +1,7 @@
 # Manual del Programador Competitivo
 
-El Manual del programador competitivo es una introducción moderna a la programación competitiva.
-El libro analiza los trucos de programación y las técnicas de diseño de algoritmos relevantes en la programación competitiva.
+El Manual del Programador Competitivo es una introducción moderna a la programación competitiva.
+El libro analiza trucos de programación y técnicas de diseño de algoritmos relevantes en la programación competitiva.
 
 ## Conjunto de Problemas CSES
 
