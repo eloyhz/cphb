@@ -415,43 +415,43 @@ Por ejemplo, usando \texttt{double},
 es posible representar con precisión todos
 los enteros cuyo valor absoluto sea como máximo $2^{53}$.
 
-\section{Shortening code}
+\section{Abreviando el código}
 
-Short code is ideal in competitive programming,
-because programs should be written
-as fast as possible.
-Because of this, competitive programmers often define
-shorter names for datatypes and other parts of code.
+El código abreviado es ideal en la programación competitiva,
+porque los programas deben ser escritos
+tan rápido como sea posible.
+Debido a esto, los programadores competitivos a menudo definen
+nombres más cortos para tipos de datos y otras partes del código.
 
-\subsubsection{Type names}
+\subsubsection{Nombres de tipo}
 \index{tuppdef@\texttt{typedef}}
-Using the command \texttt{typedef}
-it is possible to give a shorter name
-to a datatype.
-For example, the name \texttt{long long} is long,
-so we can define a shorter name \texttt{ll}:
+Usando el comando \texttt{typedef}
+es posible dar un nombre más corto
+a un tipo de dato.
+Por ejemplo, el nombre \texttt{long long} es largo,
+así que podemos definir un nombre más corto \texttt{ll}:
 \begin{lstlisting}
 typedef long long ll;
 \end{lstlisting}
-After this, the code
+Después de esto, el código
 \begin{lstlisting}
 long long a = 123456789;
 long long b = 987654321;
 cout << a*b << "\n";
 \end{lstlisting}
-can be shortened as follows:
+se puede abreviar de la siguiente manera:
 \begin{lstlisting}
 ll a = 123456789;
 ll b = 987654321;
 cout << a*b << "\n";
 \end{lstlisting}
 
-The command \texttt{typedef}
-can also be used with more complex types.
-For example, the following code gives
-the name \texttt{vi} for a vector of integers
-and the name \texttt{pi} for a pair
-that contains two integers.
+El comando \texttt{typedef}
+también se puede utilizar con tipos más complejos.
+Por ejemplo, el siguiente código establece
+el nombre \texttt{vi} para un vector de enteros
+y el nombre \texttt{pi} para un par
+que contiene dos enteros.
 \begin{lstlisting}
 typedef vector<int> vi;
 typedef pair<int,int> pi;
@@ -459,78 +459,78 @@ typedef pair<int,int> pi;
 
 \subsubsection{Macros}
 \index{macro}
-Another way to shorten code is to define
+Otra forma de acortar el código es mediante
 \key{macros}.
-A macro means that certain strings in
-the code will be changed before the compilation.
-In C++, macros are defined using the
-\texttt{\#define} keyword.
+Una macro significa que ciertas cadenas en
+el código se cambiarán antes de la compilación.
+En C++, las macros se definen utilizando la
+palabra clave \texttt{\#define}.
 
-For example, we can define the following macros:
+Por ejemplo, podemos definir las siguientes macros:
 \begin{lstlisting}
 #define F first
 #define S second
 #define PB push_back
 #define MP make_pair
 \end{lstlisting}
-After this, the code
+Después de esto, el código
 \begin{lstlisting}
 v.push_back(make_pair(y1,x1));
 v.push_back(make_pair(y2,x2));
 int d = v[i].first+v[i].second;
 \end{lstlisting}
-can be shortened as follows:
+puede abreviarse de la siguiente manera:
 \begin{lstlisting}
 v.PB(MP(y1,x1));
 v.PB(MP(y2,x2));
 int d = v[i].F+v[i].S;
 \end{lstlisting}
 
-A macro can also have parameters
-which makes it possible to shorten loops and other
-structures.
-For example, we can define the following macro:
+Una macro también puede tener parámetros
+que permiten abreviar ciclos y otras
+estructuras de control.
+Por ejemplo, podemos definir la siguiente macro:
 \begin{lstlisting}
 #define REP(i,a,b) for (int i = a; i <= b; i++)
 \end{lstlisting}
-After this, the code
+Después de esto, el código
 \begin{lstlisting}
 for (int i = 1; i <= n; i++) {
     search(i);
 }
 \end{lstlisting}
-can be shortened as follows:
+puede abreviarse de la siguiente manera:
 \begin{lstlisting}
 REP(i,1,n) {
     search(i);
 }
 \end{lstlisting}
 
-Sometimes macros cause bugs that may be difficult
-to detect. For example, consider the following macro
-that calculates the square of a number:
+A veces, las macros causan errores que pueden resultar difíciles
+detectar. Por ejemplo, considere la siguiente macro
+que calcula el cuadrado de un número:
 \begin{lstlisting}
 #define SQ(a) a*a
 \end{lstlisting}
-This macro \emph{does not} always work as expected.
-For example, the code
+Esta macro \emph{no} siempre funciona como se espera.
+Por ejemplo, el código
 \begin{lstlisting}
 cout << SQ(3+3) << "\n";
 \end{lstlisting}
-corresponds to the code
+corresponde al código
 \begin{lstlisting}
 cout << 3+3*3+3 << "\n"; // 15
 \end{lstlisting}
 
-A better version of the macro is as follows:
+Una mejor versión de la macro es la siguiente:
 \begin{lstlisting}
 #define SQ(a) (a)*(a)
 \end{lstlisting}
-Now the code
+Ahora el código
 \begin{lstlisting}
 cout << SQ(3+3) << "\n";
 \end{lstlisting}
-corresponds to the code
+corresponde al código
 \begin{lstlisting}
 cout << (3+3)*(3+3) << "\n"; // 36
 \end{lstlisting}
