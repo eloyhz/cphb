@@ -233,34 +233,34 @@ Después de esto, el programa lee la entrada del archivo
 ''input.txt'' y escribe la salida en el archivo
 ''output.txt''.
 
-\section{Working with numbers}
+\section{Trabajando con números}
 
-\index{integer}
+\index{entero}
 
-\subsubsection{Integers}
+\subsubsection{Enteros}
 
-The most used integer type in competitive programming
-is \texttt{int}, which is a 32-bit type with
-a value range of $-2^{31} \ldots 2^{31}-1$
-or about $-2 \cdot 10^9 \ldots 2 \cdot 10^9$.
-If the type \texttt{int} is not enough,
-the 64-bit type \texttt{long long} can be used.
-It has a value range of $-2^{63} \ldots 2^{63}-1$
-or about $-9 \cdot 10^{18} \ldots 9 \cdot 10^{18}$.
+El tipo de entero más utilizado en programación competitiva
+es \texttt{int}, el cual consta de 32 bits que proporcionan
+un rango de valores de $-2^{31} \ldots 2^{31}-1$
+o cerca de $-2 \cdot 10^9 \ldots 2 \cdot 10^9$.
+Si el tipo \texttt{int} no es suficiente,
+se puede utilizar el tipo \texttt{long long} de 64 bits.
+Éste tiene un rango de valores de $-2^{63} \ldots 2^{63}-1$
+o cerca de $-9 \cdot 10^{18} \ldots 9 \cdot 10^{18}$.
 
-The following code defines a
-\texttt{long long} variable:
+El siguiente código define una variable
+\texttt{long long}:
 \begin{lstlisting}
 long long x = 123456789123456789LL;
 \end{lstlisting}
-The suffix \texttt{LL} means that the
-type of the number is \texttt{long long}.
+El sufijo \texttt{LL} significa que el
+tipo de dato del número es \texttt{long long}.
 
-A common mistake when using the type \texttt{long long}
-is that the type \texttt{int} is still used somewhere
-in the code.
-For example, the following code contains
-a subtle error:
+Un error común cuando se usa el tipo \texttt{long long}
+es que el tipo \texttt{int} todavía se utilice 
+en algún otro lugar.
+Por ejemplo, el siguiente código continue
+un error muy sutil:
 
 \begin{lstlisting}
 int a = 123456789;
@@ -268,48 +268,48 @@ long long b = a*a;
 cout << b << "\n"; // -1757895751
 \end{lstlisting}
 
-Even though the variable \texttt{b} is of type \texttt{long long},
-both numbers in the expression \texttt{a*a}
-are of type \texttt{int} and the result is
-also of type \texttt{int}.
-Because of this, the variable \texttt{b} will
-contain a wrong result.
-The problem can be solved by changing the type
-of \texttt{a} to \texttt{long long} or
-by changing the expression to \texttt{(long long)a*a}.
+Aunque la variable \texttt{b} es de tipo \texttt{long long},
+ambos números en la expresión \texttt{a*a}
+son de tipo \texttt{int} y el resultado
+también es de tipo \texttt{int}.
+Debido a esto, la variable \texttt{b}
+contendrá un resultado equivocado.
+El problema se puede resolver cambiando el tipo
+de la variable \texttt{a} por \texttt{long long} o
+cambiando la expresión por \texttt{(long long)a*a}.
 
-Usually contest problems are set so that the
-type \texttt{long long} is enough.
-Still, it is good to know that
-the \texttt{g++} compiler also provides
-a 128-bit type \texttt{\_\_int128\_t}
-with a value range of
-$-2^{127} \ldots 2^{127}-1$ or about $-10^{38} \ldots 10^{38}$.
-However, this type is not available in all contest systems.
+Por lo general, los problemas del concurso se establecen de manera que
+el tipo \texttt{long long} sea suficiente.
+Aun así, es bueno saber que
+el compilador \texttt{g++} también provee
+un tipo \texttt{\_\_int128\_t} de 128 bits
+con un rango de valores de
+$-2^{127} \ldots 2^{127}-1$ o cerca de $-10^{38} \ldots 10^{38}$.
+Sin embargo, este tipo de dato no está disponible en todas las plataformas de concursos.
 
-\subsubsection{Modular arithmetic}
+\subsubsection{Aritmética modular}
 
-\index{remainder}
-\index{modular arithmetic}
+\index{residuo}
+\index{aritmética modular}
 
-We denote by $x \bmod m$ the remainder
-when $x$ is divided by $m$.
-For example, $17 \bmod 5 = 2$,
-because $17 = 3 \cdot 5 + 2$.
+Denotamos a $x \bmod m$ como el residuo
+cuando $x$ es dividido por $m$.
+Por ejemplo, $17 \bmod 5 = 2$,
+porque $17 = 3 \cdot 5 + 2$.
 
-Sometimes, the answer to a problem is a
-very large number but it is enough to
-output it ''modulo $m$'', i.e.,
-the remainder when the answer is divided by $m$
-(for example, ''modulo $10^9+7$'').
-The idea is that even if the actual answer
-is very large,
-it suffices to use the types
-\texttt{int} and \texttt{long long}.
+A veces, la respuesta a un problema es un
+un número muy grande pero es suficiente
+imprimirlo ''módulo $m$'', p.ej.,
+el residuo cuando la respuesta es dividida por $m$
+(por ejemplo, ''módulo $10^9+7$'').
+La idea es que incluso si la respuesta
+es muy grande,
+es suficiente utilizar los tipos
+\texttt{int} y \texttt{long long}.
 
-An important property of the remainder is that
-in addition, subtraction and multiplication,
-the remainder can be taken before the operation:
+Una propiedad importante del residuo es que
+en las operaciones de suma, resta y multiplicación,
+el residuo se puede realizar antes de la operación:
 
 \[
 \begin{array}{rcr}
@@ -319,11 +319,11 @@ the remainder can be taken before the operation:
 \end{array}
 \]
 
-Thus, we can take the remainder after every operation
-and the numbers will never become too large.
+Por lo tanto, podemos aplicar el residuo después de cada operación
+y los números nunca serán demasiado grandes.
 
-For example, the following code calculates $n!$,
-the factorial of $n$, modulo $m$:
+Por ejemplo, el siguiente código calcula $n!$,
+el factorial de $n$, módulo $m$:
 \begin{lstlisting}
 long long x = 1;
 for (int i = 2; i <= n; i++) {
@@ -332,88 +332,88 @@ for (int i = 2; i <= n; i++) {
 cout << x%m << "\n";
 \end{lstlisting}
 
-Usually we want the remainder to always
-be between $0\ldots m-1$.
-However, in C++ and other languages,
-the remainder of a negative number
-is either zero or negative.
-An easy way to make sure there
-are no negative remainders is to first calculate
-the remainder as usual and then add $m$
-if the result is negative:
+Por lo general, queremos que el residuo siempre
+esté entre $0\ldots m-1$.
+Sin embargo, en C++ y otros lenguajes,
+el residuo de un número negativo
+es cero o negativo.
+Una forma sencilla de asegurarse
+que no hay residuos negativos es primero calcular
+el residuo como siempre y sumarle $m$
+si el resultado es negativo:
 \begin{lstlisting}
 x = x%m;
 if (x < 0) x += m;
 \end{lstlisting}
-However, this is only needed when there
-are subtractions in the code and the
-remainder may become negative.
+Sin embargo, esto solo es necesario cuando hay
+restas en el código y
+el residuo puede volverse negativo.
 
-\subsubsection{Floating point numbers}
+\subsubsection{Números de punto flotante}
 
-\index{floating point number}
+\index{número de punto flotante}
 
-The usual floating point types in
-competitive programming are
-the 64-bit \texttt{double}
-and, as an extension in the \texttt{g++} compiler,
-the 80-bit \texttt{long double}.
-In most cases, \texttt{double} is enough,
-but \texttt{long double} is more accurate.
+Los tipos de dato de punto flotante más comunes en
+programación competitiva son
+el \texttt{double} de 64 bits
+y, como una extensión en el compilador \texttt{g++},
+el \texttt{long double} de 80 bits.
+En la mayoría de los casos, \texttt{double} es suficiente,
+pero \texttt{long double} es más preciso.
 
-The required precision of the answer
-is usually given in the problem statement.
-An easy way to output the answer is to use
-the \texttt{printf} function
-and give the number of decimal places
-in the formatting string.
-For example, the following code prints
-the value of $x$ with 9 decimal places:
+La precisión requerida de la respuesta 
+generalmente se da en el enunciado del problema.
+Una forma sencilla de generar la respuesta es utilizar
+la función \texttt{printf}
+y dar el número de lugares decimales
+en la cadena de formato.
+Por ejemplo, el siguiente código imprime
+el valor de $x$ con 9 decimales:
 
 \begin{lstlisting}
 printf("%.9f\n", x);
 \end{lstlisting}
 
-A difficulty when using floating point numbers
-is that some numbers cannot be represented
-accurately as floating point numbers,
-and there will be rounding errors.
-For example, the result of the following code
-is surprising:
+Una dificultad al usar números de punto flotante
+es que algunos números no se pueden representar
+exactamente como tal,
+y habrá errores de redondeo.
+Por ejemplo, el resultado del siguiente código
+es sorprendente:
 
 \begin{lstlisting}
 double x = 0.3*3+0.1;
 printf("%.20f\n", x); // 0.99999999999999988898
 \end{lstlisting}
 
-Due to a rounding error,
-the value of \texttt{x} is a bit smaller than 1,
-while the correct value would be 1.
+Debido a un error de redondeo,
+el valor de \texttt{x} es un poco menor que 1,
+mientras que el valor correcto sería 1.
 
-It is risky to compare floating point numbers
-with the \texttt{==} operator,
-because it is possible that the values should be
-equal but they are not because of precision errors.
-A better way to compare floating point numbers
-is to assume that two numbers are equal
-if the difference between them is less than $\varepsilon$,
-where $\varepsilon$ is a small number.
+Es arriesgado comparar números de punto flotante
+con el operador \texttt{==},
+porque es posible que aunque los valores son iguales 
+al final de cuentas no lo sean debido a errores de precisión.
+Una mejor manera de comparar números de punto flotante
+es asumir que dos números son iguales
+si la diferencia entre ellos es menor que $\varepsilon$,
+donde $\varepsilon$ es un número pequeño.
 
-In practice, the numbers can be compared
-as follows ($\varepsilon=10^{-9}$):
+En la práctcia, los números se pueden comparar
+de la siguiente manera ($\varepsilon=10^{-9}$):
 
 \begin{lstlisting}
 if (abs(a-b) < 1e-9) {
-    // a and b are equal
+    // a y b son iguales
 }
 \end{lstlisting}
 
-Note that while floating point numbers are inaccurate,
-integers up to a certain limit can still be
-represented accurately.
-For example, using \texttt{double},
-it is possible to accurately represent all
-integers whose absolute value is at most $2^{53}$.
+Se debe tener en cuenta que aunque los números de punto flotante son inexactos,
+los números enteros todavía pueden ser
+representados con precisión hasta un cierto límite.
+Por ejemplo, usando \texttt{double},
+es posible representar con precisión todos
+los enteros cuyo valor absoluto sea como máximo $2^{53}$.
 
 \section{Shortening code}
 
