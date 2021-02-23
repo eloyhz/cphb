@@ -125,22 +125,22 @@ El compilador sigue el estándar C++11
 optimiza el código (\texttt{-O2})
 y muestra advertencias sobre posibles errores  (\texttt{-Wall}).
 
-\section{Input and output}
+\section{Entrada y salida}
 
-\index{input and output}
+\index{entrada y salida}
 
-In most contests, standard streams are used for
-reading input and writing output.
-In C++, the standard streams are
-\texttt{cin} for input and \texttt{cout} for output.
-In addition, the C functions
-\texttt{scanf} and \texttt{printf} can be used.
+En la mayoría de los concursos, los flujos estándar se utilizan
+para leer la entrada y escribir la salida.
+En C++, los flujos estándar son
+\texttt{cin} para entrada y \texttt{cout} para salida.
+Además, se pueden utilizar las funciones
+\texttt{scanf} y \texttt{printf} del lenguaje C.
 
-The input for the program usually consists of
-numbers and strings that are separated with
-spaces and newlines.
-They can be read from the \texttt{cin} stream
-as follows:
+La entrada del programa generalmente consiste en
+números y cadenas que están separados por
+espacios y nuevas líneas.
+Se pueden leer desde el flujo de entrada \texttt{cin}
+de la siguiente manera:
 
 \begin{lstlisting}
 int a, b;
@@ -148,11 +148,11 @@ string x;
 cin >> a >> b >> x;
 \end{lstlisting}
 
-This kind of code always works,
-assuming that there is at least one space
-or newline between each element in the input.
-For example, the above code can read
-both of the following inputs:
+Este tipo de código siempre funciona,
+asumiendo que hay al menos un espacio
+o nueva línea entre cada elemento de la entrada.
+Por ejemplo, el código anterior puede leer
+las siguientes entradas de la misma manera:
 \begin{lstlisting}
 123 456 monkey
 \end{lstlisting}
@@ -160,77 +160,77 @@ both of the following inputs:
 123    456
 monkey
 \end{lstlisting}
-The \texttt{cout} stream is used for output
-as follows:
+El flujo \texttt{cout} se utiliza para la salida
+de la siguiente manera:
 \begin{lstlisting}
 int a = 123, b = 456;
 string x = "monkey";
 cout << a << " " << b << " " << x << "\n";
 \end{lstlisting}
 
-Input and output is sometimes
-a bottleneck in the program.
-The following lines at the beginning of the code
-make input and output more efficient:
+A veces, la entrada y la salida
+son un cuello de botella en el programa.
+Las siguientes líneas al inicio del programa
+hacen que la entrada y la salida sean más eficientes:
 
 \begin{lstlisting}
 ios::sync_with_stdio(0);
 cin.tie(0);
 \end{lstlisting}
 
-Note that the newline \texttt{"\textbackslash n"}
-works faster than \texttt{endl},
-because \texttt{endl} always causes
-a flush operation.
+Se debe tener en cuenta que la nueva línea \texttt{"\textbackslash n"}
+funciona más rápido que \texttt{endl},
+porque \texttt{endl} siempre causa una
+operación de vaciado del búfer.
 
-The C functions \texttt{scanf}
-and \texttt{printf} are an alternative
-to the C++ standard streams.
-They are usually a bit faster,
-but they are also more difficult to use.
-The following code reads two integers from the input:
+Las funciones de C \texttt{scanf}
+y \texttt{printf} son una alternativa
+a los flujos estándar de C++.
+Suelen ser un poco más rápidas
+pero también son más difíciles de usar.
+El siguiente código lee dos números enteros de la entrada:
 \begin{lstlisting}
 int a, b;
 scanf("%d %d", &a, &b);
 \end{lstlisting}
-The following code prints two integers:
+El siguiente código imprime dos enteros:
 \begin{lstlisting}
 int a = 123, b = 456;
 printf("%d %d\n", a, b);
 \end{lstlisting}
 
-Sometimes the program should read a whole line
-from the input, possibly containing spaces.
-This can be accomplished by using the
-\texttt{getline} function:
+A veces, el programa debe leer una línea completa
+de la entrada, posiblemente conteniendo espacios.
+Esto se puede lograr utilizando
+la función \texttt{getline}:
 
 \begin{lstlisting}
 string s;
 getline(cin, s);
 \end{lstlisting}
 
-If the amount of data is unknown, the following
-loop is useful:
+Si se desconoce la cantidad de datos, el siguiente
+ciclo es muy útil:
 \begin{lstlisting}
 while (cin >> x) {
-    // code
+    // codigo
 }
 \end{lstlisting}
-This loop reads elements from the input
-one after another, until there is no
-more data available in the input.
+Este ciclo lee elementos de la entrada
+uno tras otro, hasta que no haya
+más datos disponibles en la entrada.
 
-In some contest systems, files are used for
-input and output.
-An easy solution for this is to write
-the code as usual using standard streams,
-but add the following lines to the beginning of the code:
+Algunas plataformas de concursos utilizan archivos para
+entrada y salida.
+Una solución fácil para esto es escribir
+el código como de costumbre usando flujos estándar,
+pero agregando las siguientes líneas al principio del código:
 \begin{lstlisting}
 freopen("input.txt", "r", stdin);
 freopen("output.txt", "w", stdout);
 \end{lstlisting}
-After this, the program reads the input from the file
-''input.txt'' and writes the output to the file
+Después de esto, el programa lee la entrada del archivo
+''input.txt'' y escribe la salida en el archivo
 ''output.txt''.
 
 \section{Working with numbers}
