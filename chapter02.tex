@@ -344,29 +344,28 @@ puede realizar $n/2$ o $5n$ operaciones.
 Esto tiene un efecto importante en el
 tiempo de ejecución del algoritmo.
 
-\section{Maximum subarray sum}
+\section{Suma máxima del subarreglo}
 
-\index{maximum subarray sum}
+\index{suma máxima del subarreglo}
 
-There are often several possible algorithms
-for solving a problem such that their
-time complexities are different.
-This section discusses a classic problem that
-has a straightforward $O(n^3)$ solution.
-However, by designing a better algorithm, it
-is possible to solve the problem in $O(n^2)$
-time and even in $O(n)$ time.
+A menudo hay diferentes algoritmos
+para resolver un mismo problema, de tal manera que tienen
+complejidades temporales diferentes.
+Esta sección analiza un problema clásico que
+tiene una sencilla solución $O(n^3)$.
+Sin embargo, al diseñar un mejor algoritmo,
+es posible resolver el problema en un tiempo $O(n^2)$
+e inclusive en un tiempo $O(n)$.
 
-Given an array of $n$ numbers,
-our task is to calculate the
-\key{maximum subarray sum}, i.e.,
-the largest possible sum of 
-a sequence of consecutive values
-in the array\footnote{J. Bentley's
-book \emph{Programming Pearls} \cite{ben86} made the problem popular.}.
-The problem is interesting when there may be
-negative values in the array.
-For example, in the array
+Dado un arreglo de $n$ números,
+la tarea es calcular la
+\key{suma máxima del subarreglo}\footnote {El libro \emph{Programming Pearls}
+\cite{ben86} de J. Bentley popularizó este problema.}, 
+es decir, la mayor suma posible de una secuencia de 
+valores consecutivos en el arreglo.
+El problema es interesante cuando puede haber
+valores negativos en el arreglo.
+Por ejemplo, en el arreglo
 \begin{center}
 \begin{tikzpicture}[scale=0.7]
 \draw (0,0) grid (8,1);
@@ -382,7 +381,7 @@ For example, in the array
 \end{tikzpicture}
 \end{center}
 \begin{samepage}
-the following subarray produces the maximum sum $10$:
+el siguiente subarreglo produce la suma máxima $10$:
 \begin{center}
 \begin{tikzpicture}[scale=0.7]
 \fill[color=lightgray] (1,0) rectangle (6,1);
@@ -400,16 +399,15 @@ the following subarray produces the maximum sum $10$:
 \end{center}
 \end{samepage}
 
-We assume that an empty subarray is allowed,
-so the maximum subarray sum is always at least $0$.
+Suponemos que se permite un subarreglo vacío,
+por lo que la suma máxima del subarreglo es siempre al menos $0$.
+\subsubsection{Algoritmo 1}
 
-\subsubsection{Algorithm 1}
-
-A straightforward way to solve the problem
-is to go through all possible subarrays,
-calculate the sum of values in each subarray and maintain
-the maximum sum.
-The following code implements this algorithm:
+Una forma sencilla de resolver el problema
+es recorrer todos los subarreglos posibles,
+calcular la suma de valores en cada subarreglo y mantener
+la suma máxima.
+El siguiente código implementa este algoritmo:
 
 \begin{lstlisting}
 int best = 0;
@@ -419,28 +417,28 @@ for (int a = 0; a < n; a++) {
         for (int k = a; k <= b; k++) {
             sum += array[k];
         }
-        best = max(best,sum);
+        best = max(best, sum);
     }
 }
 cout << best << "\n";
 \end{lstlisting}
 
-The variables \texttt{a} and \texttt{b} fix the first and
-last index of the subarray,
-and the sum of values is calculated to the variable \texttt{sum}.
-The variable \texttt{best} contains the maximum sum found during the search.
+Las variables \texttt{a} y \texttt{b} establecen el primer y
+último índice del subarreglo,
+y la suma de valores se calcula en la variable \texttt{sum}.
+La variable \texttt{best} contiene la suma máxima encontrada durante la búsqueda.
 
-The time complexity of the algorithm is $O(n^3)$,
-because it consists of three nested loops 
-that go through the input.
+La complejidad temporal de este algoritmo es $O(n^3)$,
+porque contiene tres ciclos anidados 
+que recorren la entrada.
 
-\subsubsection{Algorithm 2}
+\subsubsection{Algoritmo 2}
 
-It is easy to make Algorithm 1 more efficient
-by removing one loop from it.
-This is possible by calculating the sum at the same
-time when the right end of the subarray moves.
-The result is the following code:
+Es fácil hacer que el algoritmo 1 sea más eficiente
+quitando un ciclo de él.
+Esto es posible calculando la suma en el mismo
+momento en el que se mueve el extremo derecho del subarreglo.
+El resultado es el siguiente código:
 
 \begin{lstlisting}
 int best = 0;
@@ -448,74 +446,74 @@ for (int a = 0; a < n; a++) {
     int sum = 0;
     for (int b = a; b < n; b++) {
         sum += array[b];
-        best = max(best,sum);
+        best = max(best, sum);
     }
 }
 cout << best << "\n";
 \end{lstlisting}
-After this change, the time complexity is $O(n^2)$.
+Después de este cambio, la complejidad temporal es $O(n^2)$.
 
-\subsubsection{Algorithm 3}
+\subsubsection{Algoritmo 3}
 
-Surprisingly, it is possible to solve the problem
-in $O(n)$ time\footnote{In \cite{ben86}, this linear-time algorithm
-is attributed to J. B. Kadane, and the algorithm is sometimes
-called \index{Kadane's algorithm} \key{Kadane's algorithm}.}, which means
-that just one loop is enough.
-The idea is to calculate, for each array position,
-the maximum sum of a subarray that ends at that position.
-After this, the answer for the problem is the
-maximum of those sums.
+Sorprendentemente, es posible resolver el problema
+en tiempo $O(n)$ \footnote{En \cite{ben86}, este algoritmo lineal
+es atribuído a J. B. Kadane, y el algoritmo es a veces
+llamado \index{algoritmo de Kadane} \key{algoritmo de Kadane}.}, lo cual significa
+que solamente con un ciclo es suficiente.
+La idea es calcular, para cada posición del arreglo,
+la suma máxima de un subarreglo que termina en esa posición.
+Después de esto, la respuesta al problema es la
+máximo de esas sumas.
 
-Consider the subproblem of finding the maximum-sum subarray
-that ends at position $k$.
-There are two possibilities:
+Considere el subproblema de encontrar el subarreglo de suma máxima
+que termina en la posición $k$.
+Hay dos posibilidades:
 \begin{enumerate}
-\item The subarray only contains the element at position $k$.
-\item The subarray consists of a subarray that ends
-at position $k-1$, followed by the element at position $k$.
+\item El subarreglo solo contiene el elemento en la posición $k$.
+\item El subarreglo consta de un subarreglo que termina
+en la posición $k-1$, seguido del elemento en la posición $k$.
 \end{enumerate}
 
-In the latter case, since we want to
-find a subarray with maximum sum,
-the subarray that ends at position $k-1$
-should also have the maximum sum.
-Thus, we can solve the problem efficiently
-by calculating the maximum subarray sum
-for each ending position from left to right.
+En este último caso, ya que queremos
+encontrar un subarreglo con suma máxima,
+el subarreglo que termina en la posición $k-1$
+también debe tener la suma máxima.
+Por lo tanto, podemos resolver el problema de manera eficiente
+calculando la suma máxima del subarreglo
+para cada posición final de izquierda a derecha.
 
-The following code implements the algorithm:
+El siguiente código implementa el algoritmo:
 \begin{lstlisting}
 int best = 0, sum = 0;
 for (int k = 0; k < n; k++) {
-    sum = max(array[k],sum+array[k]);
-    best = max(best,sum);
+    sum = max(array[k], sum + array[k]);
+    best = max(best, sum);
 }
 cout << best << "\n";
 \end{lstlisting}
 
-The algorithm only contains one loop
-that goes through the input,
-so the time complexity is $O(n)$.
-This is also the best possible time complexity,
-because any algorithm for the problem
-has to examine all array elements at least once.
+El algoritmo solamente contiene un ciclo
+que recorre la entrada,
+por lo que la complejidad temporal es $O(n)$.
+Esta también es la mejor complejidad temporal posible,
+porque cualquier algoritmo para el problema
+tiene que examinar todos los elementos del arreglo al menos una vez.
 
-\subsubsection{Efficiency comparison}
+\subsubsection{Comparación de eficiencia}
 
-It is interesting to study how efficient 
-algorithms are in practice.
-The following table shows the running times
-of the above algorithms for different
-values of $n$ on a modern computer.
+Es interesante estudiar cuán eficiente
+son los algoritmos en la práctica.
+La siguiente tabla muestra los tiempos de ejecución
+de los algoritmos anteriores para diferentes
+valores de $n$ en una computadora moderna.
 
-In each test, the input was generated randomly.
-The time needed for reading the input was not
-measured.
+En cada prueba, la entrada se generó de forma aleatoria.
+El tiempo necesario para leer la entrada no fue
+medido.
 
 \begin{center}
 \begin{tabular}{rrrr}
-array size $n$ & Algorithm 1 & Algorithm 2 & Algorithm 3 \\
+arreglo de tamaño $n$ & Algoritmo 1 & Algoritmo 2 & Algoritmo 3 \\
 \hline
 $10^2$ & $0.0$ s & $0.0$ s & $0.0$ s \\
 $10^3$ & $0.1$ s & $0.0$ s & $0.0$ s \\
@@ -526,12 +524,12 @@ $10^7$ & > $10.0$ s & > $10.0$ s & $0.0$ s \\
 \end{tabular}
 \end{center}
 
-The comparison shows that all algorithms
-are efficient when the input size is small,
-but larger inputs bring out remarkable
-differences in the running times of the algorithms.
-Algorithm 1 becomes slow
-when $n=10^4$, and Algorithm 2
-becomes slow when $n=10^5$.
-Only Algorithm 3 is able to process
-even the largest inputs instantly.
+La comparación muestra que todos los algoritmos
+son eficientes cuando el tamaño de entrada es pequeño,
+pero las entradas más grandes resaltan
+diferencias en los tiempos de ejecución.
+El algoritmo 1 se vuelve lento
+cuando $n=10^4$, y el algoritmo 2
+se vuelve lento cuando $n=10^5$.
+Solamente el algoritmo 3 puede procesar casi instantáneamente
+incluso las entradas más grandes.
