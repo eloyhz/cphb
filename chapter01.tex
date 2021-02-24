@@ -39,7 +39,7 @@ mantenimiento después del concurso.
 
 \section{Lenguajes de programación}
 
-\index{Lenguaje de programación}
+\index{lenguaje de programación}
 
 Al momento, los lenguajes de programación más populares
 usados en los concursos son C++, Python y Java.
@@ -299,7 +299,7 @@ porque $17 = 3 \cdot 5 + 2$.
 
 A veces, la respuesta a un problema es un
 un número muy grande pero es suficiente
-imprimirlo ''módulo $m$'', p.ej.,
+imprimirlo ''módulo $m$'', es decir,
 el residuo cuando la respuesta es dividida por $m$
 (por ejemplo, ''módulo $10^9+7$'').
 La idea es que incluso si la respuesta
@@ -536,194 +536,194 @@ cout << (3+3)*(3+3) << "\n"; // 36
 \end{lstlisting}
 
 
-\section{Mathematics}
+\section{Matemáticas}
 
-Mathematics plays an important role in competitive
-programming, and it is not possible to become
-a successful competitive programmer without
-having good mathematical skills.
-This section discusses some important
-mathematical concepts and formulas that
-are needed later in the book.
+Las matemáticas tienen un papel importante en la programación
+competitiva, y no es posible convertirse en
+un programador competitivo exitoso sin
+tener buenas habilidades matemáticas.
+En esta sección se analizan algunos
+conceptos matemáticos y fórmulas que
+se necesitan más adelante en el libro.
 
-\subsubsection{Sum formulas}
+\subsubsection{Fórmulas de sumas}
 
-Each sum of the form
+Cada suma de la forma
 \[\sum_{x=1}^n x^k = 1^k+2^k+3^k+\ldots+n^k,\]
-where $k$ is a positive integer,
-has a closed-form formula that is a
-polynomial of degree $k+1$.
-For example\footnote{\index{Faulhaber's formula}
-There is even a general formula for such sums, called \key{Faulhaber's formula},
-but it is too complex to be presented here.},
+donde $k$ es un enero positivo,
+tiene una fórmula de forma cerrada que es un
+polinomio de grado $k+1$.
+Por ejemplo\footnote{\index{fórmula de Faulhaber}
+Incluso existe una fórmula general para tales sumas, llamada \key{fórmula de Faulhaber},
+pero es demasiado compleja para presentarla aquí.},
 \[\sum_{x=1}^n x = 1+2+3+\ldots+n = \frac{n(n+1)}{2}\]
-and
+y
 \[\sum_{x=1}^n x^2 = 1^2+2^2+3^2+\ldots+n^2 = \frac{n(n+1)(2n+1)}{6}.\]
 
-An \key{arithmetic progression} is a \index{arithmetic progression}
-sequence of numbers
-where the difference between any two consecutive
-numbers is constant.
-For example,
+Una \key{progresión aritmética} es una \index{progresión aritmética}
+secuencia de números
+donde la diferencia entre dos números consecutivos
+es constante.
+Por ejemplo,
 \[3, 7, 11, 15\]
-is an arithmetic progression with constant 4.
-The sum of an arithmetic progression can be calculated
-using the formula
-\[\underbrace{a + \cdots + b}_{n \,\, \textrm{numbers}} = \frac{n(a+b)}{2}\]
-where $a$ is the first number,
-$b$ is the last number and
-$n$ is the amount of numbers.
-For example,
+es una progresión aritmética con constante 4.
+Se puede calcular la suma de una progresión aritmética
+usando la fórmula
+\[\underbrace{a + \cdots + b}_{n \,\, \textrm{números}} = \frac{n(a+b)}{2}\]
+donde $a$ es el primer número,
+$b$ es el último número y
+$n$ es la cantidad de números.
+Por ejemplo,
 \[3+7+11+15=\frac{4 \cdot (3+15)}{2} = 36.\]
-The formula is based on the fact
-that the sum consists of $n$ numbers and
-the value of each number is $(a+b)/2$ on average.
+La fórmula se basa en el hecho
+de que la suma consta de $n$ números y
+el valor de cada número es $(a+b)/2 $ en promedio.
 
-\index{geometric progression}
-A \key{geometric progression} is a sequence
-of numbers
-where the ratio between any two consecutive
-numbers is constant.
-For example,
+\index{progresión geométrica}
+Una \key{progresión geométrica} es una secuencia
+de números
+donde la relación entre dos números consecutivos
+es constante.
+Por ejemplo,
 \[3,6,12,24\]
-is a geometric progression with constant 2.
-The sum of a geometric progression can be calculated
-using the formula
+es una progresión geométrica con constante 2.
+La suma de una progresión geométrica se puede calcular
+usando la fórmula
 \[a + ak + ak^2 + \cdots + b = \frac{bk-a}{k-1}\]
-where $a$ is the first number,
-$b$ is the last number and the
-ratio between consecutive numbers is $k$.
-For example,
+donde $a$ es el primer número,
+$b$ es el último número y la
+relación entre números consecutivos es $k$.
+Por ejemplo,
 \[3+6+12+24=\frac{24 \cdot 2 - 3}{2-1} = 45.\]
 
-This formula can be derived as follows. Let
+Esta fórmula se puede derivar de la siguiente manera. Sea
 \[ S = a + ak + ak^2 + \cdots + b .\]
-By multiplying both sides by $k$, we get
+Al multiplicar ambos lados por $k$, obtenemos
 \[ kS = ak + ak^2 + ak^3 + \cdots + bk,\]
-and solving the equation
+y resolviendo la ecuación
 \[ kS-S = bk-a\]
-yields the formula.
+produce la fórmula.
 
-A special case of a sum of a geometric progression is the formula
+Un caso especial de suma de una progresión geométrica es la fórmula
 \[1+2+4+8+\ldots+2^{n-1}=2^n-1.\]
 
-\index{harmonic sum}
+\index{suma armónica}
 
-A \key{harmonic sum} is a sum of the form
+Una \key{suma armónica} es una suma de la forma
 \[ \sum_{x=1}^n \frac{1}{x} = 1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n}.\]
 
-An upper bound for a harmonic sum is $\log_2(n)+1$.
-Namely, we can
-modify each term $1/k$ so that $k$ becomes
-the nearest power of two that does not exceed $k$.
-For example, when $n=6$, we can estimate
-the sum as follows:
+Un límite superior para una suma armónica es $\log_2(n)+1$.
+Es decir, podemos
+modificar cada término $1/k$ de tal manera que $k$ se convierte en
+la potencia más cercana de dos que no excede $k$.
+Por ejemplo, cuando $n=6$, podemos estimar
+la suma como sigue:
 \[ 1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\frac{1}{6} \le
 1+\frac{1}{2}+\frac{1}{2}+\frac{1}{4}+\frac{1}{4}+\frac{1}{4}.\]
-This upper bound consists of $\log_2(n)+1$ parts
+Este límite superior consta de $\log_2(n)+1$ partes
 ($1$, $2 \cdot 1/2$, $4 \cdot 1/4$, etc.),
-and the value of each part is at most 1.
+y el valor de cada parte es como máximo 1.
 
-\subsubsection{Set theory}
+\subsubsection{Teoría de conjuntos}
 
-\index{set theory}
-\index{set}
-\index{intersection}
-\index{union}
-\index{difference}
-\index{subset}
-\index{universal set}
-\index{complement}
+\index{teoría de conjuntos}
+\index{conjunto}
+\index{intersección}
+\index{unión}
+\index{diferencia}
+\index{subconjunto}
+\index{conjunto universal}
+\index{complemento}
 
-A \key{set} is a collection of elements.
-For example, the set
+Un \key{conjunto} es una colección de elementos.
+Por ejemplo, el conjunto
 \[X=\{2,4,7\}\]
-contains elements 2, 4 and 7.
-The symbol $\emptyset$ denotes an empty set,
-and $|S|$ denotes the size of a set $S$,
-i.e., the number of elements in the set.
-For example, in the above set, $|X|=3$.
+contiene los elementos 2, 4 y 7.
+El símbolo $\emptyset$ denota un conjunto vacío,
+y $|S|$ denota el tamaño de un conjunto $S$,
+es decir, el número de elementos en el conjunto.
+Por ejemplo, en el conjunto anterior, $|X|=3$.
 
-If a set $S$ contains an element $x$,
-we write $x \in S$,
-and otherwise we write $x \notin S$.
-For example, in the above set
-\[4 \in X \hspace{10px}\textrm{and}\hspace{10px} 5 \notin X.\]
+Si un conjunto $S$ contiene un elemento $x$,
+escribimos $x \in S$,
+de lo contrario escribimos $x \notin S$.
+Por ejemplo, en el conjunto anterior
+\[4 \in X \hspace{10px}\textrm{y}\hspace{10px} 5 \notin X.\]
 
 \begin{samepage}
-New sets can be constructed using set operations:
+Se pueden construir nuevos conjuntos usando operaciones de conjuntos:
 \begin{itemize}
-\item The \key{intersection} $A \cap B$ consists of elements
-that are in both $A$ and $B$.
-For example, if $A=\{1,2,5\}$ and $B=\{2,4\}$,
-then $A \cap B = \{2\}$.
-\item The \key{union} $A \cup B$ consists of elements
-that are in $A$ or $B$ or both.
-For example, if $A=\{3,7\}$ and $B=\{2,3,8\}$,
-then $A \cup B = \{2,3,7,8\}$.
-\item The \key{complement} $\bar A$ consists of elements
-that are not in $A$.
-The interpretation of a complement depends on
-the \key{universal set}, which contains all possible elements.
-For example, if $A=\{1,2,5,7\}$ and the universal set is
-$\{1,2,\ldots,10\}$, then $\bar A = \{3,4,6,8,9,10\}$.
-\item The \key{difference} $A \setminus B = A \cap \bar B$
-consists of elements that are in $A$ but not in $B$.
-Note that $B$ can contain elements that are not in $A$.
-For example, if $A=\{2,3,7,8\}$ and $B=\{3,5,8\}$,
-then $A \setminus B = \{2,7\}$.
+\item La \key{intersección} $A \cap B$ consiste de elementos
+que están en ambos $A$ y $B$.
+Por ejemplo, si $A=\{1,2,5\}$ y $B=\{2,4\}$,
+entonces $A \cap B = \{2\}$.
+\item La \key{unión} $A \cup B$ consiste de elementos
+que están en $A$ o en $B$ o en ambos.
+Por ejemplo, si $A=\{3,7\}$ and $B=\{2,3,8\}$,
+entonces $A \cup B = \{2,3,7,8\}$.
+\item El \key{complemento} $\bar A$ consiste de elementos
+que no están en $A$.
+La interpretación de un complemento depende de
+el \key{conjunto universal}, que contiene todos los elementos posibles.
+Por ejemplo, si $A=\{1,2,5,7\}$ y el conjunto universal es
+$\{1,2,\ldots,10\}$, entonces $\bar A = \{3,4,6,8,9,10\}$.
+\item La \key{diferencia} $A \setminus B = A \cap \bar B$
+consiste de elementos que están en $A$ pero no en $B$.
+Tenga en cuenta que $B$ puede contener elementos que no están en $A$.
+Por ejemplo, si $A=\{2,3,7,8\}$ y $B=\{3,5,8\}$,
+entonces $A \setminus B = \{2,7\}$.
 \end{itemize}
 \end{samepage}
 
-If each element of $A$ also belongs to $S$,
-we say that $A$ is a \key{subset} of $S$,
-denoted by $A \subset S$.
-A set $S$ always has $2^{|S|}$ subsets,
-including the empty set.
-For example, the subsets of the set $\{2,4,7\}$ are
+Si cada elemento de $A$ también pertenece a $S$,
+podemos decir que $A$ es un \key{subconjunto} de $S$,
+denotado por $A \subset S$.
+Un conjunto $S$ siempre tiene $2^{|S|}$ subconjuntos,
+incluyendo el conjunto vacío.
+Por ejemplo, los subconjuntos del conjunto $\{2,4,7\}$ son
 \begin{center}
 $\emptyset$,
 $\{2\}$, $\{4\}$, $\{7\}$, $\{2,4\}$, $\{2,7\}$, $\{4,7\}$ and $\{2,4,7\}$.
 \end{center}
 
-Some often used sets are
-$\mathbb{N}$ (natural numbers),
-$\mathbb{Z}$ (integers),
-$\mathbb{Q}$ (rational numbers) and
-$\mathbb{R}$ (real numbers).
-The set $\mathbb{N}$
-can be defined in two ways, depending
-on the situation:
-either $\mathbb{N}=\{0,1,2,\ldots\}$
-or $\mathbb{N}=\{1,2,3,...\}$.
+Algunos conjuntos de uso frecuente son
+$\mathbb{N}$ (números naturales),
+$\mathbb{Z}$ (enteros),
+$\mathbb{Q}$ (números racionales) y
+$\mathbb{R}$ (números reales).
+El conjunto $\mathbb{N}$
+se puede definir de dos formas, dependiendo
+sobre la situación:
+cualquiera de $\mathbb{N}=\{0,1,2,\ldots\}$
+o $\mathbb{N}=\{1,2,3,...\}$.
 
-We can also construct a set using a rule of the form
+También podemos construir un conjunto usando una regla de la forma
 \[\{f(n) : n \in S\},\]
-where $f(n)$ is some function.
-This set contains all elements of the form $f(n)$,
-where $n$ is an element in $S$.
-For example, the set
+donde $f(n)$ es alguna función.
+Este conjunto contiene todos los elementos de la forma $f(n)$,
+donde $n$ es un elemento en $S$.
+Por ejemplo, el conjunto
 \[X=\{2n : n \in \mathbb{Z}\}\]
-contains all even integers.
+contiene todos los enteros pares
 
-\subsubsection{Logic}
+\subsubsection{Lógica}
 
-\index{logic}
-\index{negation}
-\index{conjuction}
-\index{disjunction}
-\index{implication}
-\index{equivalence}
+\index{lógica}
+\index{negación}
+\index{conjunción}
+\index{disyunción}
+\index{implicación}
+\index{equivalencia}
 
-The value of a logical expression is either
-\key{true} (1) or \key{false} (0).
-The most important logical operators are
-$\lnot$ (\key{negation}),
-$\land$ (\key{conjunction}),
-$\lor$ (\key{disjunction}),
-$\Rightarrow$ (\key{implication}) and
-$\Leftrightarrow$ (\key{equivalence}).
-The following table shows the meanings of these operators:
+El valor de una expresión lógica es
+\key{true} (1) o \key{false} (0).
+Los operadores lógicos más importantes son
+$\lnot$ (\key{negación}),
+$\land$ (\key{conjunción}),
+$\lor$ (\key{disyunción}),
+$\Rightarrow$ (\key{implicación}) y
+$\Leftrightarrow$ (\key{equivalencia}).
+La siguiente tabla muestra los significados de estos operadores:
 
 \begin{center}
 \begin{tabular}{rr|rrrrrrr}
@@ -736,69 +736,69 @@ $A$ & $B$ & $\lnot A$ & $\lnot B$ & $A \land B$ & $A \lor B$ & $A \Rightarrow B$
 \end{tabular}
 \end{center}
 
-The expression $\lnot A$ has the opposite value of $A$.
-The expression $A \land B$ is true if both $A$ and $B$
-are true,
-and the expression $A \lor B$ is true if $A$ or $B$ or both
-are true.
-The expression $A \Rightarrow B$ is true
-if whenever $A$ is true, also $B$ is true.
-The expression $A \Leftrightarrow B$ is true
-if $A$ and $B$ are both true or both false.
+La expresión $\lnot A$ tiene el valor opuesto de $A$.
+La expresión $A \land B$ es verdadera si ambos $A$ y $B$
+son verdaderos,
+y la expresión $A \lor B$ es verdadera si $A$ o $B$ o ambos
+son verdaderos.
+La expresión $A \Rightarrow B$ es verdadera
+si cuando $A$ es verdadera, también $B$ es verdadera.
+La expresión $A \Leftrightarrow B$ es verdadera
+si $A$ y $B$ son ambas verdaderas o ambas falsas.
 
-\index{predicate}
+\index{predicado}
 
-A \key{predicate} is an expression that is true or false
-depending on its parameters.
-Predicates are usually denoted by capital letters.
-For example, we can define a predicate $P(x)$
-that is true exactly when $x$ is a prime number.
-Using this definition, $P(7)$ is true but $P(8)$ is false.
+Un \key{predicado} es una expresión que es verdadera o falsa
+dependiendo de sus parámetros.
+Los predicados generalmente se denotan con letras mayúsculas.
+Por ejemplo, podemos definir un predicado $P(x)$
+que sea verdadero exactamente cuando $x$ sea un número primo.
+Usando esta definición, $P(7)$ es verdadero pero $P(8)$ es falso.
 
-\index{quantifier}
+\index{cuantificador}
 
-A \key{quantifier} connects a logical expression
-to the elements of a set.
-The most important quantifiers are
-$\forall$ (\key{for all}) and $\exists$ (\key{there is}).
-For example,
+Un \key{cuantificador} conecta una expresión lógica
+a los elementos de un conjunto.
+Los cuantificadores más importantes son
+$\forall$ (\key{para todo}) y $\exists$ (\key{existe}).
+Por ejemplo,
 \[\forall x (\exists y (y < x))\]
-means that for each element $x$ in the set,
-there is an element $y$ in the set
-such that $y$ is smaller than $x$.
-This is true in the set of integers,
-but false in the set of natural numbers.
+significa que por cada elemento $x$ en el conjunto,
+existe un elemento $y$ en el conjunto
+tal que $y$ es más pequeño que $x$.
+Esto es cierto en el conjunto de números enteros,
+pero falso en el conjunto de los números naturales.
 
-Using the notation described above,
-we can express many kinds of logical propositions.
-For example,
+Usando la notación descrita anteriormente,
+podemos expresar muchos tipos de proposiciones lógicas.
+Por ejemplo,
 \[\forall x ((x>1 \land \lnot P(x)) \Rightarrow (\exists a (\exists b (a > 1 \land b > 1 \land x = ab))))\]
-means that if a number $x$ is larger than 1
-and not a prime number,
-then there are numbers $a$ and $b$
-that are larger than $1$ and whose product is $x$.
-This proposition is true in the set of integers.
+significa que si un número $x$ es mayor que 1
+y no es un número primo,
+entonces existen números $a$ y $b$
+que son mayores que $1$ y cuyo producto es $x$.
+Esta proposición es verdadera en el conjunto de números enteros.
 
-\subsubsection{Functions}
+\subsubsection{Funciones}
 
-The function $\lfloor x \rfloor$ rounds the number $x$
-down to an integer, and the function
-$\lceil x \rceil$ rounds the number $x$
-up to an integer. For example,
+La función $\lfloor x \rfloor$ redondea el número $x$
+hacia el entero inmediato inferior, y la función
+$\lceil x \rceil$ redondea el número $x$
+hacia el entero inmediato superior. Por ejemplo,
 \[ \lfloor 3/2 \rfloor = 1 \hspace{10px} \textrm{and} \hspace{10px} \lceil 3/2 \rceil = 2.\]
 
-The functions $\min(x_1,x_2,\ldots,x_n)$
-and $\max(x_1,x_2,\ldots,x_n)$
-give the smallest and largest of values
+Las funciones $\min(x_1,x_2,\ldots,x_n)$
+y $\max(x_1,x_2,\ldots,x_n)$
+dan el más pequeño y más grande de los valores
 $x_1,x_2,\ldots,x_n$.
-For example,
-\[ \min(1,2,3)=1 \hspace{10px} \textrm{and} \hspace{10px} \max(1,2,3)=3.\]
+Por ejemplo,
+\[ \min(1,2,3)=1 \hspace{10px} \textrm{y} \hspace{10px} \max(1,2,3)=3.\]
 
 \index{factorial}
 
-The \key{factorial} $n!$ can be defined
+El \key{factorial} $n!$ se puede definir como
 \[\prod_{x=1}^n x = 1 \cdot 2 \cdot 3 \cdot \ldots \cdot n\]
-or recursively
+o recursivamente
 \[
 \begin{array}{lcl}
 0! & = & 1 \\
@@ -806,12 +806,12 @@ n! & = & n \cdot (n-1)! \\
 \end{array}
 \]
 
-\index{Fibonacci number}
+\index{número de Fibonacci}
 
-The \key{Fibonacci numbers}
+Los \key{números de Fibonacci}
 %\footnote{Fibonacci (c. 1175--1250) was an Italian mathematician.}
-arise in many situations.
-They can be defined recursively as follows:
+surgen en muchas situaciones.
+Estos números pueden definirse recursivamente de la siguiente manera:
 \[
 \begin{array}{lcl}
 f(0) & = & 0 \\
@@ -819,59 +819,59 @@ f(1) & = & 1 \\
 f(n) & = & f(n-1)+f(n-2) \\
 \end{array}
 \]
-The first Fibonacci numbers are
+Los primeros números de Fibonacci son
 \[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \ldots\]
-There is also a closed-form formula
-for calculating Fibonacci numbers, which is sometimes called
-\index{Binet's formula} \key{Binet's formula}:
+También hay una fórmula de forma cerrada
+para calcular los números de Fibonacci, que a veces se llama
+\index{fórmula de Binet} \key{fórmula de Binet}:
 \[f(n)=\frac{(1 + \sqrt{5})^n - (1-\sqrt{5})^n}{2^n \sqrt{5}}.\]
 
-\subsubsection{Logarithms}
+\subsubsection{Logaritmos}
 
-\index{logarithm}
+\index{logaritmo}
 
-The \key{logarithm} of a number $x$
-is denoted $\log_k(x)$, where $k$ is the base
-of the logarithm.
-According to the definition,
-$\log_k(x)=a$ exactly when $k^a=x$.
+El \key{logaritmo} de un número $x$
+se denota $\log_k(x)$, donde $k$ es la base
+del logaritmo.
+Según la definición,
+$\log_k(x)=a$ exactamente cuando $k^a=x$.
 
-A useful property of logarithms is
-that $\log_k(x)$ equals the number of times
-we have to divide $x$ by $k$ before we reach 
-the number 1.
-For example, $\log_2(32)=5$
-because 5 divisions by 2 are needed:
+Una propiedad útil de los logaritmos es
+que $\log_k(x)$ es igual al número de veces que
+se debe dividir $x$ por $k$ antes de obtener 
+el número 1.
+Por ejemplo, $\log_2(32)=5$
+porque se requieren 5 divisiones por 2:
 
 \[32 \rightarrow 16 \rightarrow 8 \rightarrow 4 \rightarrow 2 \rightarrow 1 \]
 
-Logarithms are often used in the analysis of
-algorithms, because many efficient algorithms
-halve something at each step.
-Hence, we can estimate the efficiency of such algorithms
-using logarithms.
+Los logaritmos se utilizan a menudo en el análisis de
+algoritmos, porque muchos algoritmos eficientes
+reducen algo a la mitad en cada paso.
+Por tanto, podemos estimar la eficiencia de tales algoritmos
+usando logaritmos.
 
-The logarithm of a product is
+El logaritmo de un producto es
 \[\log_k(ab) = \log_k(a)+\log_k(b),\]
-and consequently,
+y consecuentemente,
 \[\log_k(x^n) = n \cdot \log_k(x).\]
-In addition, the logarithm of a quotient is
+Además, el logaritmo de un cociente es
 \[\log_k\Big(\frac{a}{b}\Big) = \log_k(a)-\log_k(b).\]
-Another useful formula is
+Otra fórmula útil es
 \[\log_u(x) = \frac{\log_k(x)}{\log_k(u)},\]
-and using this, it is possible to calculate
-logarithms to any base if there is a way to
-calculate logarithms to some fixed base.
+y usando esto, es posible calcular
+logaritmos a cualquier base si hay una manera de
+calcular logaritmos a una base fija.
 
-\index{natural logarithm}
+\index{logaritmo natural}
 
-The \key{natural logarithm} $\ln(x)$ of a number $x$
-is a logarithm whose base is $e \approx 2.71828$.
-Another property of logarithms is that
-the number of digits of an integer $x$ in base $b$ is
+El \key{logaritmo natural} $\ln(x)$ de un número $x$
+es un logaritmo cuya base es $e \approx 2.71828$.
+Otra propiedad de los logaritmos es que
+el número de dígitos de un entero $x$ en base $b$ es
 $\lfloor \log_b(x)+1 \rfloor$.
-For example, the representation of
-$123$ in base $2$ is 1111011 and
+Por ejemplo, la representación de
+$123$ en base $2$ es 1111011 y
 $\lfloor \log_2(123)+1 \rfloor = 7$.
 
 \section{Contests and resources}
