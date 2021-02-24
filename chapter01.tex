@@ -92,7 +92,7 @@ en programación competitiva:
 using namespace std;
 
 int main() {
-    // aqui viene la solucion
+    // aqui va la solución
 }
 \end{lstlisting}
 
@@ -213,7 +213,7 @@ Si se desconoce la cantidad de datos, el siguiente
 ciclo es muy útil:
 \begin{lstlisting}
 while (cin >> x) {
-    // codigo
+    // código
 }
 \end{lstlisting}
 Este ciclo lee elementos de la entrada
@@ -264,7 +264,7 @@ un error muy sutil:
 
 \begin{lstlisting}
 int a = 123456789;
-long long b = a*a;
+long long b = a * a;
 cout << b << "\n"; // -1757895751
 \end{lstlisting}
 
@@ -327,9 +327,9 @@ el factorial de $n$, módulo $m$:
 \begin{lstlisting}
 long long x = 1;
 for (int i = 2; i <= n; i++) {
-    x = (x*i)%m;
+    x = (x * i) % m;
 }
-cout << x%m << "\n";
+cout << x % m << "\n";
 \end{lstlisting}
 
 Por lo general, queremos que el residuo siempre
@@ -342,7 +342,7 @@ que no hay residuos negativos es primero calcular
 el residuo como siempre y sumarle $m$
 si el resultado es negativo:
 \begin{lstlisting}
-x = x%m;
+x = x % m;
 if (x < 0) x += m;
 \end{lstlisting}
 Sin embargo, esto solo es necesario cuando hay
@@ -382,7 +382,7 @@ Por ejemplo, el resultado del siguiente código
 es sorprendente:
 
 \begin{lstlisting}
-double x = 0.3*3+0.1;
+double x = 0.3 * 3 + 0.1;
 printf("%.20f\n", x); // 0.99999999999999988898
 \end{lstlisting}
 
@@ -437,13 +437,13 @@ Después de esto, el código
 \begin{lstlisting}
 long long a = 123456789;
 long long b = 987654321;
-cout << a*b << "\n";
+cout << a * b << "\n";
 \end{lstlisting}
 se puede abreviar de la siguiente manera:
 \begin{lstlisting}
 ll a = 123456789;
 ll b = 987654321;
-cout << a*b << "\n";
+cout << a * b << "\n";
 \end{lstlisting}
 
 El comando \texttt{typedef}
@@ -454,7 +454,7 @@ y el nombre \texttt{pi} para un par
 que contiene dos enteros.
 \begin{lstlisting}
 typedef vector<int> vi;
-typedef pair<int,int> pi;
+typedef pair<int, int> pi;
 \end{lstlisting}
 
 \subsubsection{Macros}
@@ -475,15 +475,15 @@ Por ejemplo, podemos definir las siguientes macros:
 \end{lstlisting}
 Después de esto, el código
 \begin{lstlisting}
-v.push_back(make_pair(y1,x1));
-v.push_back(make_pair(y2,x2));
-int d = v[i].first+v[i].second;
+v.push_back(make_pair(y1, x1));
+v.push_back(make_pair(y2, x2));
+int d = v[i].first + v[i].second;
 \end{lstlisting}
 puede abreviarse de la siguiente manera:
 \begin{lstlisting}
-v.PB(MP(y1,x1));
-v.PB(MP(y2,x2));
-int d = v[i].F+v[i].S;
+v.PB(MP(y1, x1));
+v.PB(MP(y2, x2));
+int d = v[i].F + v[i].S;
 \end{lstlisting}
 
 Una macro también puede tener parámetros
@@ -491,7 +491,7 @@ que permiten abreviar ciclos y otras
 estructuras de control.
 Por ejemplo, podemos definir la siguiente macro:
 \begin{lstlisting}
-#define REP(i,a,b) for (int i = a; i <= b; i++)
+#define REP(i, a, b) for (int i = a; i <= b; i++)
 \end{lstlisting}
 Después de esto, el código
 \begin{lstlisting}
@@ -501,7 +501,7 @@ for (int i = 1; i <= n; i++) {
 \end{lstlisting}
 puede abreviarse de la siguiente manera:
 \begin{lstlisting}
-REP(i,1,n) {
+REP(i, 1, n) {
     search(i);
 }
 \end{lstlisting}
@@ -510,29 +510,29 @@ A veces, las macros causan errores que pueden resultar difíciles
 detectar. Por ejemplo, considere la siguiente macro
 que calcula el cuadrado de un número:
 \begin{lstlisting}
-#define SQ(a) a*a
+#define SQ(a) a * a
 \end{lstlisting}
 Esta macro \emph{no} siempre funciona como se espera.
 Por ejemplo, el código
 \begin{lstlisting}
-cout << SQ(3+3) << "\n";
+cout << SQ(3 + 3) << "\n";
 \end{lstlisting}
 corresponde al código
 \begin{lstlisting}
-cout << 3+3*3+3 << "\n"; // 15
+cout << 3 + 3 * 3 + 3 << "\n"; // 15
 \end{lstlisting}
 
 Una mejor versión de la macro es la siguiente:
 \begin{lstlisting}
-#define SQ(a) (a)*(a)
+#define SQ(a) (a) * (a)
 \end{lstlisting}
 Ahora el código
 \begin{lstlisting}
-cout << SQ(3+3) << "\n";
+cout << SQ(3 + 3) << "\n";
 \end{lstlisting}
 corresponde al código
 \begin{lstlisting}
-cout << (3+3)*(3+3) << "\n"; // 36
+cout << (3 + 3) * (3 + 3) << "\n"; // 36
 \end{lstlisting}
 
 
