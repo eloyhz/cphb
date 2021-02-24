@@ -187,107 +187,107 @@ $g(1)$ & $2^{n-1}$ \\
 Basado en esto, la complejidad temporal es
 \[1+2+4+\cdots+2^{n-1} = 2^n-1 = O(2^n).\]
 
-\section{Complexity classes}
+\section{Clases de complejidad}
 
-\index{complexity classes}
+\index{clases de complejidad}
 
-The following list contains common time complexities
-of algorithms:
+La siguiente lista contiene las complejidades temporales más 
+comunes en algoritmos:
 
 \begin{description}
 \item[$O(1)$]
-\index{constant-time algorithm}
-The running time of a \key{constant-time} algorithm
-does not depend on the input size.
-A typical constant-time algorithm is a direct
-formula that calculates the answer.
+\index{algoritmo de tiempo constante}
+El tiempo de ejecución en un algoritmo de \key{tiempo constante}
+no depende del tamaño de la entrada.
+Un algoritmo típico de tiempo constante es una
+fórmula que calcula una respuesta.
 
 \item[$O(\log n)$]
-\index{logarithmic algorithm}
-A \key{logarithmic} algorithm often halves
-the input size at each step.
-The running time of such an algorithm
-is logarithmic, because
-$\log_2 n$ equals the number of times
-$n$ must be divided by 2 to get 1.
+\index{algoritmo logarítmico}
+Una algoritmo \key{logarítmico} a menudo divide
+el tamaño de la entrada a la mitad en cada paso.
+El tiempo de ejecución de tal algoritmo
+es logarítmico, porque
+$\log_2 n$ es igual al número de veces que
+$n$ se debe dividir por 2 para obtener 1.
 
 \item[$O(\sqrt n)$]
-A \key{square root algorithm} is slower than
-$O(\log n)$ but faster than $O(n)$.
-A special property of square roots is that
-$\sqrt n = n/\sqrt n$, so the square root $\sqrt n$ lies,
-in some sense, in the middle of the input.
+Un \key{algoritmo de raíz cuadrada} es más lento que
+$O(\log n)$ pero más rápido que $O(n)$.
+Una propiedad especial de las raíces cuadradas es que
+$\sqrt n = n/\sqrt n$, de tal modo que la raiz cuadrada $\sqrt n$ se encuentra,
+en cierto sentido, en medio de la entrada.
 
 \item[$O(n)$]
-\index{linear algorithm}
-A \key{linear} algorithm goes through the input
-a constant number of times.
-This is often the best possible time complexity,
-because it is usually necessary to access each
-input element at least once before
-reporting the answer.
+\index{algoritmo lineal}
+Un algoritmo \key{lineal} recorre la entrada
+un número constante de veces.
+Esta suele ser la mejor complejidad de tiempo posible,
+porque suele ser necesario acceder a cada
+elemento de entrada al menos una vez antes
+de producir la respuesta.
 
 \item[$O(n \log n)$]
-This time complexity often indicates that the
-algorithm sorts the input,
-because the time complexity of efficient
-sorting algorithms is $O(n \log n)$.
-Another possibility is that the algorithm
-uses a data structure where each operation
-takes $O(\log n)$ time.
+Esta complejidad temporal a menudo indica que el
+algoritmo ordena la entrada,
+porque la complejidad temporal de los
+algoritmos de ordenación eficientes es $O(n \log n)$.
+Otra posibilidad es que el algoritmo
+utiliza una estructura de datos donde cada operación
+toma un tiempo $O (\log n)$.
 
 \item[$O(n^2)$]
-\index{quadratic algorithm}
-A \key{quadratic} algorithm often contains
-two nested loops.
-It is possible to go through all pairs of
-the input elements in $O(n^2)$ time.
+\index{algoritmo cuadrático}
+Un algoritmo \key{cuadrático} a menudo contiene
+dos ciclos anidados.
+Es posible recorrer todos los pares de
+elementos de entrada en un tiempo $O(n^2)$.
 
 \item[$O(n^3)$]
-\index{cubic algorithm}
-A \key{cubic} algorithm often contains
-three nested loops.
-It is possible to go through all triplets of
-the input elements in $O(n^3)$ time.
+\index{algoritmo cúbico}
+Un algoritmo \key{cúbico}  a menudo contiene
+tres ciclos anidados.
+Es posible recorrer todos las tripletas de
+elementos de entrada en un tiempo $O(n^3)$.
 
 \item[$O(2^n)$]
-This time complexity often indicates that
-the algorithm iterates through all
-subsets of the input elements.
-For example, the subsets of $\{1,2,3\}$ are
+Esta complejidad temporal a menudo indica que
+el algoritmo itera a través de todos
+subconjuntos de los elementos de entrada.
+Por ejemplo, los subconjuntos de $\{1,2,3\}$ son
 $\emptyset$, $\{1\}$, $\{2\}$, $\{3\}$, $\{1,2\}$,
-$\{1,3\}$, $\{2,3\}$ and $\{1,2,3\}$.
+$\{1,3\}$, $\{2,3\}$ y $\{1,2,3\}$.
 
 \item[$O(n!)$]
-This time complexity often indicates that
-the algorithm iterates through all
-permutations of the input elements.
-For example, the permutations of $\{1,2,3\}$ are
+Esta complejidad temporal a menudo indica que
+el algoritmo itera a través de todas las
+permutaciones de los elementos de entrada.
+Por ejemplos, las permutaciones de $\{1,2,3\}$ son
 $(1,2,3)$, $(1,3,2)$, $(2,1,3)$, $(2,3,1)$,
-$(3,1,2)$ and $(3,2,1)$.
+$(3,1,2)$ y $(3,2,1)$.
 
 \end{description}
 
-\index{polynomial algorithm}
-An algorithm is \key{polynomial}
-if its time complexity is at most $O(n^k)$
-where $k$ is a constant.
-All the above time complexities except
-$O(2^n)$ and $O(n!)$ are polynomial.
-In practice, the constant $k$ is usually small,
-and therefore a polynomial time complexity
-roughly means that the algorithm is \emph{efficient}.
+\index{algoritmo polinomial}
+Un algoritmo es \key{polinomial}
+si su complejidad temporal es como mucho $O(n^k)$
+donde $k$ es una constante.
+Todas las complejidades temporales anteriores excepto
+$O(2^n)$ y $O(n!)$ son polinomiales.
+En la práctica, la constante $k$ suele ser pequeña,
+y por lo tanto una complejidad temporal polinomial
+aproximadamente significa que el algoritmo es \emph{eficiente}.
 
-\index{NP-hard problem}
+\index{problema NP-difícil}
 
-Most algorithms in this book are polynomial.
-Still, there are many important problems for which
-no polynomial algorithm is known, i.e.,
-nobody knows how to solve them efficiently.
-\key{NP-hard} problems are an important set
-of problems, for which no polynomial algorithm
-is known\footnote{A classic book on the topic is
-M. R. Garey's and D. S. Johnson's
+La mayoría de los algoritmos de este libro son polinomiales.
+Sin embargo, existen muchos problemas importantes para los que
+no se conoce ningún algoritmo polinomial, es decir,
+nadie sabe cómo resolverlos de manera eficiente.
+Los problemas \key{NP-difícil} son un conjunto importante
+de problemas, para los cuales no se conoce un algoritmo
+polinomial\footnote{Un libro clásico sobre el tema es
+M. R. Garey's y D. S. Johnson's
 \emph{Computers and Intractability: A Guide to the Theory
 of NP-Completeness} \cite{gar79}.}.
 
